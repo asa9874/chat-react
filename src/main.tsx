@@ -1,11 +1,16 @@
-import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import Layout from './components/layout/Layout';
+import Home from './pages/Home';
 import './styles/index.css';
+import './styles/reset.css';
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <h1 className="text-3xl font-bold underline">
-      tailwind 적용테스트
-    </h1>
-  </StrictMode>,
+  <Router>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+      </Route>
+    </Routes>
+  </Router>
 )
