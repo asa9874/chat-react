@@ -14,7 +14,7 @@ function FooterButton({ text,page }: FooterButtonProps) {
 
     return (
         <button 
-        className="px-10 py-5 text-white bg-slate-400 rounded hover:bg-slate-600"
+        className="px-10 py-5 text-white bg-sky-400 rounded hover:bg-sky-600"
         onClick={handleClick}
         >
             {text}
