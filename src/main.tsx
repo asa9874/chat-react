@@ -1,7 +1,10 @@
 import { createRoot } from 'react-dom/client';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout';
+import Chat from './pages/Chat';
+import Friend from './pages/Friend';
 import Home from './pages/Home';
+import MyInfo from './pages/MyInfo';
 import NotFound from './pages/NotFound';
 import './styles/index.css';
 import './styles/reset.css';
@@ -11,6 +14,9 @@ createRoot(document.getElementById('root')!).render(
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
+        <Route path="/friend" element={<Friend />} />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/my-info" element={<MyInfo />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
