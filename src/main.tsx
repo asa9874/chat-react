@@ -4,6 +4,7 @@ import Layout from './components/layout/Layout';
 import Chat from './pages/Chat';
 import Friend from './pages/Friend';
 import Home from './pages/Home';
+import Login from './pages/Login';
 import MyInfo from './pages/MyInfo';
 import NotFound from './pages/NotFound';
 import './styles/index.css';
@@ -18,6 +19,9 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/chat" element={<Chat />} />
         <Route path="/my-info" element={<MyInfo />} />
         <Route path="*" element={<NotFound />} />
+      </Route>
+      <Route element={<Layout showHeaderFooter={false} />}>
+        <Route path="/login" element={<Login />} />
       </Route>
     </Routes>
   </Router>
