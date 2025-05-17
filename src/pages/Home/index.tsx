@@ -1,9 +1,22 @@
-
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const token = localStorage.getItem('jwt'); // 혹은 sessionStorage
+        if (!token) {
+            navigate('/login');
+        }
+        else{
+            navigate('/friend');
+        }
+    }, [navigate]);
+
     return (
         <>
-            
+            <h1>홈 페이지</h1>
         </>
     );
 }

@@ -1,8 +1,8 @@
 import FooterButton from "../FooterButton";
 
-function Footer() {
+function SideBar() {
     return (
-        <div className="flex items-center justify-center w-full h-[100px] bg-sky-200 rounded-b-2xl gap-5">
+        <div className="flex items-center bg-sky-200 rounded-b-2xl gap-10 flex-col justify-center">
             <FooterButton text="친구" page="friend" />
             <FooterButton text="채팅" page="chat" />
             <FooterButton text="내 정보" page="my-info" />
@@ -10,4 +10,4 @@ function Footer() {
     )
 }
 
-export default Footer;
+export default SideBar;

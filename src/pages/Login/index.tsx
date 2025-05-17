@@ -1,4 +1,10 @@
 function Login() {
+  function handleClick(page: string) {
+        if (page) {
+            window.location.href = `/${page}`;
+        }
+    }
+
   return (
     <div className="flex items-center w-full h-full  flex-col p-3 justify-center bg-sky-300 rounded-2xl">
         <form className="flex flex-col items-center justify-center w-full h-full ">
@@ -13,10 +19,22 @@ function Login() {
             placeholder="비밀번호"
             className="w-[80%] h-[40px] p-2 m-2 border border-gray-300 rounded"
           />
-          <button className="w-[80%] h-[40px] p-2 m-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+          <button className="w-[80%] h-[40px] p-2 m-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            onClick={(e) => {
+              e.preventDefault();
+              handleClick("friend");
+            }
+          }
+          >
             로그인
           </button>
-          <button className="w-[80%] h-[40px] p-2 m-2 bg-green-500 text-white rounded hover:bg-green-600">
+          <button className="w-[80%] h-[40px] p-2 m-2 bg-green-500 text-white rounded hover:bg-green-600"
+            onClick={(e) => {
+              e.preventDefault();
+              handleClick("register");
+            }
+          }
+          >
             회원가입
           </button>
         </form>
