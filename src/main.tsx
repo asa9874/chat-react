@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import MyInfo from './pages/MyInfo';
 import NotFound from './pages/NotFound';
+import Register from './pages/Register';
 import './styles/index.css';
 import './styles/reset.css';
 
@@ -22,6 +23,7 @@ createRoot(document.getElementById('root')!).render(
       </Route>
       <Route element={<Layout showHeaderFooter={false} />}>
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Route>
     </Routes>
   </Router>
