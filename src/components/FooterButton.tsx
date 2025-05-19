@@ -2,10 +2,11 @@
 interface FooterButtonProps {
     text: string;
     page?: string;
+    icon?: React.ReactNode;
 }
 
 
-function FooterButton({ text,page }: FooterButtonProps) {
+function FooterButton({ text, page, icon }: FooterButtonProps) {
     function handleClick() {
         if (page) {
             window.location.href = `/${page}`;
@@ -13,11 +14,15 @@ function FooterButton({ text,page }: FooterButtonProps) {
     }
 
     return (
-        <button 
-        className="px-10 py-5 text-white bg-sky-500 rounded-full hover:bg-sky-600"
-        onClick={handleClick}
+        <button
+            className="flex flex-col items-center justify-center w-20 h-16 bg-sky-100 rounded-full shadow-lg hover:bg-sky-300 transition duration-300 ease-in-out"
+            type="button"
+            title={text}
+            aria-label={text}
+            role="button"
+            onClick={handleClick}
         >
-            {text}
+            {icon}
         </button>
     )
 }
