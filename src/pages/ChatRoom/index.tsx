@@ -46,19 +46,16 @@ function ChatRoom() {
         <ChatRoomMyChat />
         <ChatRoomOtherChat />
       </div>
-      <div className="bg-gray-100 h-[150px] ">
-        <div className="h-[100px] flex">
+      <div className="bg-gray-100 h-[150px] pl-5 pr-5">
+        <div className="h-[100px] flex items-center">
           <input
-            className="bg-gray-200 h-full w-full rounded-2xl"
+            className="bg-gray-200 h-[50px] w-full rounded-2xl p-5"
             placeholder="메시지를 입력해주세용"
           />
-          <button className="bg-sky-500 w-[100px]">
+          <button className="bg-sky-500 w-[100px] h-[50px] rounded-md">
             전송
           </button>
 
-        </div>
-        <div className="bg-gray-300 h-[50px]">
-          버튼같은거??
         </div>
       </div>
     </div >
