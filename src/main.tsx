@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import MyInfo from './pages/MyInfo';
 import NotFound from './pages/NotFound';
+import Profile from './pages/Profile';
 import Register from './pages/Register';
 import './styles/index.css';
 import './styles/reset.css';
@@ -26,6 +27,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/chatRoom" element={<ChatRoom />} />
+        <Route path="/profile" element={<Profile />} />
       </Route>
     </Routes>
   </Router>
