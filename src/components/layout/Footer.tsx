@@ -2,7 +2,7 @@ import FooterButton from "../FooterButton";
 
 function SideBar() {
     return (
-        <div className="flex items-center bg-sky-200 rounded-b-2xl gap-10 flex-col justify-center">
+        <div className="flex items-center bg-sky-200 rounded-b-2xl gap-10 flex-col justify-center w-[120px]">
             <FooterButton
                 text="친구"
                 page="friend"

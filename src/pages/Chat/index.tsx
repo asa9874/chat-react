@@ -1,6 +1,19 @@
+import ChatContainer from "../../components/ChatContainer";
+
 function Chat() {
   return (
-    <div>
+    <div className="flex items-center w-full h-full flex-col ">
+      <ChatContainer />
+      <ChatContainer />
+      <ChatContainer />
+      <ChatContainer />
+      <ChatContainer />
+      <ChatContainer />
+      <ChatContainer />
+      <ChatContainer />
+      <ChatContainer />
+      <ChatContainer />
+      <ChatContainer />
     </div>
   );
 }
