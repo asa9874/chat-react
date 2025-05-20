@@ -2,6 +2,7 @@ import { createRoot } from 'react-dom/client';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import Chat from './pages/Chat';
+import ChatRoom from './pages/ChatRoom';
 import Friend from './pages/Friend';
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -24,6 +25,7 @@ createRoot(document.getElementById('root')!).render(
       <Route element={<Layout showHeaderFooter={false} />}>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/chatRoom" element={<ChatRoom />} />
       </Route>
     </Routes>
   </Router>

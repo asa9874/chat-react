@@ -1,6 +1,15 @@
+import { useNavigate } from "react-router-dom";
+
 function ChatContainer() {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/chatroom");
+  };
   return (
-    <div className="flex items-center w-full h-[100px] bg-slate-200 p-5">
+    <div
+      className="flex items-center w-full h-[100px] bg-slate-200 p-5"
+      onClick={handleClick}
+    >
       <div className="flex">
         <img
           alt="썸네일"
