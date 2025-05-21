@@ -1,75 +1,86 @@
+import type { ChatRoom } from "../types/ChatRoom";
+import type { Friend } from "../types/Friend";
+import type { Member } from "../types/Member";
 import apiClient from "./apiClient";
 
-export async function getMembers() {
+export async function getMembers(): Promise<Member[]> {
     try {
         const response = await apiClient.get(`/members`);
         return response.data;
     } catch (error) {
         console.error(error);
+        throw error;
     }
 }
 
 
-export async function getMemberById(id: string) {
+export async function getMemberById(id: string): Promise<Member> {
     try {
         const response = await apiClient.get(`/members/${id}`);
         return response.data;
     } catch (error) {
         console.error(error);
+        throw error;
     }
 }
 
-export async function getMyInfo() {
+export async function getMyInfo(): Promise<Member> {
     try {
         const response = await apiClient.get(`/members/me`);
         return response.data;
     } catch (error) {
         console.error(error);
+        throw error;
     }
 }
 
-export async function getMyFriends() {
+export async function getMyFriends(): Promise<Friend[]> {
     try {
         const response = await apiClient.get(`/members/me/friends`);
         return response.data;
     } catch (error) {
         console.error(error);
+        throw error;
     }
 }
 
-export async function getMyChatRooms() {
+export async function getMyChatRooms(): Promise<ChatRoom[]> {
     try {
         const response = await apiClient.get(`/members/me/chatrooms`);
         return response.data;
     } catch (error) {
         console.error(error);
+        throw error;
     }
 }
 
-export async function getChatRoomsByMemberId(id: string) {
+export async function getChatRoomsByMemberId(id: string): Promise<ChatRoom[]> {
     try {
         const response = await apiClient.get(`/members/${id}/chatrooms`);
         return response.data;
     } catch (error) {
         console.error(error);
+        throw error;
     }
 }
 
-export async function getFriendsByMemberId(id: string) {
+export async function getFriendsByMemberId(id: string): Promise<Friend[]> {
     try {
         const response = await apiClient.get(`/members/${id}/friends`);
         return response.data;
     } catch (error) {
         console.error(error);
+        throw error;
     }
 }
 
-export async function addFriend(friendId: string) {
+export async function addFriend(friendId: string): Promise<Friend> {
     try {
         const response = await apiClient.post(`/members/me/friends/${friendId}`);
         return response.data;
     } catch (error) {
         console.error(error);
+        throw error;
     }
 }
 
