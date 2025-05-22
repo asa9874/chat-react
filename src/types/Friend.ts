@@ -1,4 +1,6 @@
 export interface Friend{
     id: number,
-    name: string
+    name: string,
+    profileImageUrl: string,
+    profileMessage: string,
 }

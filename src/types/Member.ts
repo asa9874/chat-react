@@ -2,5 +2,6 @@ export interface Member{
     id: number,
     name: string
     email: string,
-    chatRoomIds: number[]
+    profileImageUrl: string,
+    profileMessage: string,
 }
