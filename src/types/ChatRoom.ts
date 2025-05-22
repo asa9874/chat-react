@@ -9,4 +9,5 @@ export interface ChatRoom{
     lastMessageSender: string,
     ownerId: number,
     ownerName: string
+    roomImage: string,
 }

@@ -3,7 +3,7 @@ import { getMyFriends } from "../../apis/member";
 import FriendContainer from "../../components/FriendContainer";
 import type { Friend } from "../../types/Friend";
 
-function Friend() {
+function FriendList() {
   const [friendList, setFriendList] = useState<Friend[]>([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -50,4 +50,4 @@ function Friend() {
   );
 }
 
-export default Friend;
+export default FriendList;
