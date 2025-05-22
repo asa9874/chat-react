@@ -90,6 +90,7 @@ export async function removeFriend(friendId: string) {
         return response.data;
     } catch (error) {
         console.error(error);
+        throw error;
     }
 }
 
@@ -99,10 +100,11 @@ export async function registerMember(member: {
     password: string;
 }) {
     try {
-        const response = await apiClient.post(`/members`, member);
+        const response = await apiClient.post(`/members/register`, member);
         return response.data;
     } catch (error) {
         console.error(error);
+        throw error;
     }
 }
 
@@ -114,5 +116,6 @@ export async function updateMember(memberId: number, member: {
         return response.data;
     } catch (error) {
         console.error(error);
+        throw error;
     }
 }
