@@ -14,6 +14,7 @@ function Register() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
+      localStorage.removeItem("token");
       await registerMember(formData);
       navigate("/login");
     } catch (err: any) {

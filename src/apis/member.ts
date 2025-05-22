@@ -78,7 +78,7 @@ export async function addFriend(friendId: string): Promise<Friend> {
     try {
         const response = await apiClient.post(`/members/me/friends/${friendId}`);
         return response.data;
-    } catch (error) {
+    } catch (error) {   
         console.error(error);
         throw error;
     }

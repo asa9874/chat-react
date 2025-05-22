@@ -5,7 +5,7 @@ function Home() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const token = localStorage.getItem('jwt'); // 혹은 sessionStorage
+        const token = localStorage.getItem('jwt');
         if (!token) {
             navigate('/login');
         }

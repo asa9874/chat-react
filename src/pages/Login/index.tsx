@@ -12,6 +12,7 @@ function Login() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
+      localStorage.removeItem("token");
       const responseData = await loginMember(formData);
       localStorage.setItem("token", responseData.token);
       navigate("/friend");
