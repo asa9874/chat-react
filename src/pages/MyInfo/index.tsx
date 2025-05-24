@@ -1,4 +1,15 @@
+import { useNavigate } from "react-router-dom";
+import { useAuthStore } from "../../store/useAuthStore";
+import { useEffect } from "react";
+
 function MyInfo() {
+  const navigate = useNavigate();
+  const { id, logout } = useAuthStore();
+  useEffect(() => {
+    if (!id) navigate("/login");
+  }, [id, navigate]);
+
+  
   return (
     <div className="flex flex-col gap-4 w-full h-full p-4  items-center">
       <img
@@ -20,6 +31,7 @@ function MyInfo() {
       </button>
       <button
         className="h-[60px] w-full bg-red-500 hover:bg-red-700 text-white font-bold rounded text-xl"
+        onClick={logout}
       >
         로그아웃
       </button>

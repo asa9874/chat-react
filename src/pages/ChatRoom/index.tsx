@@ -2,10 +2,14 @@ import { useNavigate } from "react-router-dom";
 import ChatRoomMyChat from "../../components/ChatRoomMyChat";
 import ChatRoomOtherChat from "../../components/ChatRoomOtherChat";
 import { useAuthStore } from "../../store/useAuthStore";
+import { useEffect } from "react";
 
 function ChatRoom() {
   const navigate = useNavigate();
-  const { id } = useAuthStore();
+    const { id } = useAuthStore();
+    useEffect(() => {
+      if (!id) navigate("/login");
+    }, [id, navigate]);
 
   return (
     <div className="flex flex-col  w-full h-screen bg-sky-100">

@@ -3,15 +3,17 @@ import { getMyChatRooms } from "../../apis/member";
 import ChatContainer from "../../components/ChatContainer";
 import type { ChatRoom } from "../../types/ChatRoom";
 import { useAuthStore } from "../../store/useAuthStore";
+import { useNavigate } from "react-router-dom";
 
 function ChatRoomList() {
     const [chatRoomList, setChatRoomList] = useState<ChatRoom[]>([]);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
     const { id } = useAuthStore();
     useEffect(() => {
-      console.log("id", id);
-    }, [id]);
+      if (!id) navigate("/login");
+    }, [id, navigate]);
 
     useEffect(() => {
       const fetchChatRoomList = async () => {

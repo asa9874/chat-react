@@ -1,7 +1,13 @@
 import { useNavigate } from "react-router-dom";
+import { useAuthStore } from "../../store/useAuthStore";
+import { useEffect } from "react";
 
 function Profile() {
     const navigate = useNavigate();
+    const { id } = useAuthStore();
+    useEffect(() => {
+        if (!id) navigate("/login");
+    }, [id, navigate]);
     return (
         <div className="flex items-center w-full h-full flex-col bg-sky-200">
             <div className="h-[70px] bg-slate-700 w-full flex items-center p-3">
