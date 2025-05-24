@@ -9,7 +9,7 @@ interface ChatContainerProps {
 function ChatContainer({ chatRoom }: ChatContainerProps) {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate("/chatroom");
+    navigate("/chatroom/" + chatRoom.id);
   };
   return (
     <div

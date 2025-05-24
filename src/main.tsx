@@ -26,7 +26,7 @@ createRoot(document.getElementById('root')!).render(
       <Route element={<Layout showHeaderFooter={false} />}>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/chatRoom" element={<ChatRoom />} />
+        <Route path="/chatRoom/:chatRoomId" element={<ChatRoom  />} />
         <Route path="/profile" element={<Profile />} />
       </Route>
     </Routes>

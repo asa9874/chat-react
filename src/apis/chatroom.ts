@@ -25,7 +25,10 @@ export async function getChatRoomById(chatRoomid: string): Promise<ChatRoom> {
 export async function getMessagesByChatRoomId(chatRoomid: string): Promise<Message[]> {
     try {
         const response = await apiClient.get(`/chatrooms/${chatRoomid}/messages`);
-        return response.data;
+        const sortedMessages = response.data.sort(
+            (a: Message, b: Message) => Number(a.id) - Number(b.id)
+        );
+        return sortedMessages;
     } catch (error) {
         console.error(error);
         throw error;
