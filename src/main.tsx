@@ -12,22 +12,23 @@ import Profile from './pages/Profile';
 import Register from './pages/Register';
 import './styles/index.css';
 import './styles/reset.css';
+import ProtectedRoute from './components/ProtectedRoute';
 
 createRoot(document.getElementById('root')!).render(
   <Router>
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/friend" element={<FriendList />} />
-        <Route path="/chat" element={<ChatRoomList />} />
-        <Route path="/my-info" element={<MyInfo />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/friend" element={<ProtectedRoute><FriendList/></ProtectedRoute>} />
+        <Route path="/chat" element={<ProtectedRoute><ChatRoomList/></ProtectedRoute>} />
+        <Route path="/my-info" element={<ProtectedRoute><MyInfo/></ProtectedRoute>} />
+        <Route path="*" element={<ProtectedRoute><NotFound/></ProtectedRoute>} />
       </Route>
       <Route element={<Layout showHeaderFooter={false} />}>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/chatRoom" element={<ChatRoom />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/register" element={<Register/>} />
+        <Route path="/chatRoom" element={<ProtectedRoute><ChatRoom/></ProtectedRoute>} />
+        <Route path="/profile" element={<ProtectedRoute><Profile/></ProtectedRoute>} />
       </Route>
     </Routes>
   </Router>

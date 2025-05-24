@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginMember } from "../../apis/auth";
+import { useAuthStore } from "../../store/useAuthStore";
+import { getMyInfo } from "../../apis/member";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -9,18 +11,36 @@ function Login() {
   });
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const { id ,setUser, logout } = useAuthStore();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       localStorage.removeItem("token");
+      logout(); 
       const responseData = await loginMember(formData);
       localStorage.setItem("token", responseData.token);
-      navigate("/friend");
+      const userData = await getMyInfo();
+      setUser({
+        id: userData.id,
+        email: userData.email,
+        name: userData.name,
+        profileImageUrl: userData.profileImageUrl,
+        profileMessage: userData.profileMessage,
+      });
     } catch (err: any) {
       setError(err.message);
       console.error("로그인 실패:", err);
     }
   };
+
+  useEffect(() => {
+    if (id) {
+      console.log("id", id);
+      navigate("/friend");
+    }
+  }, [id, navigate]);
+
 
   return (
     <div className="flex items-center w-full h-full  flex-col p-3 justify-center bg-sky-300 rounded-2xl">

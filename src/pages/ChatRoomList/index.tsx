@@ -2,12 +2,17 @@ import { useEffect, useState } from "react";
 import { getMyChatRooms } from "../../apis/member";
 import ChatContainer from "../../components/ChatContainer";
 import type { ChatRoom } from "../../types/ChatRoom";
+import { useAuthStore } from "../../store/useAuthStore";
 
 function ChatRoomList() {
     const [chatRoomList, setChatRoomList] = useState<ChatRoom[]>([]);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
-  
+    const { id } = useAuthStore();
+    useEffect(() => {
+      console.log("id", id);
+    }, [id]);
+
     useEffect(() => {
       const fetchChatRoomList = async () => {
         setLoading(true);
