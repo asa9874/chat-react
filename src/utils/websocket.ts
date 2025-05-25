@@ -11,13 +11,11 @@ export function connectWebSocket(onMessage: (message: Message) => void, chatRoom
     console.error(" JWT 토큰이 없습니다. ");
     return;
   }
+  console.log(" 웹소켓 연결 시도 중... ", chatRoomId);
   stompClient = new Client({
     brokerURL: undefined, 
-    webSocketFactory: () => new SockJS(SOCKET_URL),
+    webSocketFactory: () => new SockJS(`${SOCKET_URL}?token=${encodeURIComponent(jwtToken)}`),
     reconnectDelay: 5000,
-    connectHeaders: {
-      Authorization: `Bearer ${jwtToken}`,
-    },
     onConnect: () => {
       console.log(" 웹소켓 연결됨");
       stompClient?.subscribe(`/topic/chat/${chatRoomId}`, onMessage);
