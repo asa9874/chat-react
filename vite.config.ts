@@ -10,5 +10,7 @@ export default defineConfig({
       plugins: [tailwindcss()],
     },
   },
- 
+  define: {
+    'global': 'window',  // global을 window로 정의
+  },
 });
