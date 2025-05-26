@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { getMyFriends } from "../../apis/member";
 import FriendContainer from "../../components/FriendContainer";
-import type { Friend } from "../../types/Friend";
-import { useNavigate } from "react-router-dom";
 import { useAuthStore } from "../../store/useAuthStore";
+import type { Friend } from "../../types/Friend";
 
 function FriendList() {
   const [friendList, setFriendList] = useState<Friend[]>([]);

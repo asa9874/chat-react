@@ -1,6 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout';
+import FriendAdd from './pages/AddFriend/indesx';
 import ChatRoom from './pages/ChatRoom';
 import ChatRoomList from './pages/ChatRoomList';
 import FriendList from './pages/FriendList';
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')!).render(
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="/friend" element={<FriendList />} />
+        <Route path="/friendAdd" element={<FriendAdd />} />
         <Route path="/chat" element={<ChatRoomList />} />
         <Route path="/my-info" element={<MyInfo />} />
         <Route path="*" element={<NotFound />} />
