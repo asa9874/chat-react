@@ -39,7 +39,7 @@ export async function createChatRoom(chatRoom: {
     roomName: string;
     roomDescription: string;
     ownerId: number;
-    mebmerIds: number[];
+    memberIds: number[];
 }): Promise<ChatRoom> {
     try {
         const response = await apiClient.post(`/chatrooms`, chatRoom);

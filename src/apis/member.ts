@@ -1,6 +1,7 @@
 import type { ChatRoom } from "../types/ChatRoom";
 import type { Friend } from "../types/Friend";
 import type { Member } from "../types/Member";
+import type { MemberProfile } from "../types/MemberProfile";
 import apiClient from "./apiClient";
 
 export async function getMembers(): Promise<Member[]> {
@@ -23,6 +24,17 @@ export async function getMemberById(id: string): Promise<Member> {
         throw error;
     }
 }
+
+export async function getMemberProfileById(id: string): Promise<MemberProfile> {
+    try {
+        const response = await apiClient.get(`/members/${id}/profile`);
+        return response.data;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+}
+
 
 export async function getMyInfo(): Promise<Member> {
     try {

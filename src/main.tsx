@@ -29,7 +29,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/chatRoom/:chatRoomId" element={<ChatRoom  />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/:memberId" element={<Profile />} />
       </Route>
     </Routes>
   </Router>

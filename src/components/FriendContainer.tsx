@@ -11,7 +11,7 @@ function FriendContainer({ friend }: FriendContainerProps) {
   return (
     <div className="flex items-center w-full h-[100px] bg-slate-200 p-5"
       onClick={() => {
-        navigate("/profile");
+        navigate(`/profile/${friend.id}`);
       }}>
       <div className="flex">
         <img
