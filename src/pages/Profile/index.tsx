@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { createChatRoom } from "../../apis/chatroom";
-import { getMemberProfileById } from "../../apis/member";
+import { getMemberProfileById, removeFriend } from "../../apis/member";
 import { useAuthStore } from "../../store/useAuthStore";
 import type { MemberProfile } from "../../types/MemberProfile";
 
@@ -30,11 +30,6 @@ function Profile() {
 
 
     async function handleCreateChat() {
-        createChatFriendRoom();
-    }
-
-
-    const createChatFriendRoom = async () => {
         try {
             const response = await createChatRoom({
                 roomName: `${memberProfile?.name}과의 채팅방`,
@@ -47,7 +42,20 @@ function Profile() {
             console.error("채팅방 생성 실패:", err);
             alert("채팅방 생성에 실패했습니다. 다시 시도해주세요.");
         }
-    };
+    }
+
+    async function handleDeleteFriend() {
+        try {
+            if (!memberId) throw new Error("Member ID is required");
+            const response = await removeFriend(String(id), String(memberProfile?.id));
+            navigate(`/friend`);
+        } catch (err: any) {
+            console.error("친구삭제 실패:", err);
+            alert("친구삭제에 실패! 다시 시도해주세요.");
+        }
+    }
+
+
 
     return (
         <div className="flex items-center w-full h-full flex-col bg-sky-200">
@@ -82,6 +90,7 @@ function Profile() {
                 </button>
                 <button
                     className="h-[100px] w-[100px] bg-slate-200 rounded-full"
+                    onClick={handleDeleteFriend}
                 >
                     친구삭제
                 </button>

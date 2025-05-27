@@ -86,9 +86,9 @@ export async function getFriendsByMemberId(id: string): Promise<Friend[]> {
     }
 }
 
-export async function addFriend(friendId: string): Promise<Friend> {
+export async function addFriend(memberId: string ,friendId: string): Promise<Friend> {
     try {
-        const response = await apiClient.post(`/members/me/friends/${friendId}`);
+        const response = await apiClient.post(`/members/${memberId}/friends/${friendId}`);
         return response.data;
     } catch (error) {   
         console.error(error);
@@ -96,9 +96,9 @@ export async function addFriend(friendId: string): Promise<Friend> {
     }
 }
 
-export async function removeFriend(friendId: string) {
+export async function removeFriend(memberId: string ,friendId: string) {
     try {
-        const response = await apiClient.delete(`/members/me/friends/${friendId}`);
+        const response = await apiClient.delete(`/members/${memberId}/friends/${friendId}`);
         return response.data;
     } catch (error) {
         console.error(error);
