@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getChatRoomById, getMessagesByChatRoomId } from "../../apis/chatroom";
+import { deleteChatRoom, getChatRoomById, getMessagesByChatRoomId } from "../../apis/chatroom";
 import ChatRoomMyChat from "../../components/ChatRoomMyChat";
 import ChatRoomOtherChat from "../../components/ChatRoomOtherChat";
 import { useAuthStore } from "../../store/useAuthStore";
@@ -43,6 +43,16 @@ function ChatRoom() {
 
     fetchChatRoomMessageList();
   }, []);
+
+  const handleDeleteChatRoom = async () => {
+    try {
+      if (!chatRoomId) throw new Error("채팅방 ID가 없습니다.");
+      await deleteChatRoom(chatRoomId);
+      navigate("/chat")
+    } catch (err: any) {
+      alert(err.message);
+    }
+  }
 
   // 웹소켓 연결
   useEffect(() => {
@@ -107,6 +117,14 @@ function ChatRoom() {
           {chatRoom?.roomName}
           <a className="text-sm p-3 text-gray-500">{chatRoom?.memberCount}명</a>
         </h3>
+        {(id == chatRoom?.ownerId) &&
+          <button
+            className="bg-red-300 rounded-xl w-[100px]"
+            onClick={handleDeleteChatRoom}
+          >
+            방지우기
+          </button>
+        }
       </div>
 
       {/* 채팅 메시지 영역 */}
