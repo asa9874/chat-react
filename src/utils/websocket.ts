@@ -45,7 +45,8 @@ export function connectMemberWebSocket(onMessage: (message: Message) => void, me
         console.error(" STOMP 클라이언트가 초기화되지 않았습니다.(개인)");
         return;
       }
-      stompClient.subscribe(`/user/${memberId}/queue/messages`, onMessage);
+      stompClient.subscribe('/user/queue/messages', onMessage);
+      console.log(`/user/queue/messages`)
     },
     onStompError: (frame) => {
       console.error(" STOMP 에러(개인)", frame);

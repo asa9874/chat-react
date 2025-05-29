@@ -42,10 +42,11 @@ function ChatRoomList() {
       const changedLastMessage = receivedMessage.content;
       const changedSenderName = receivedMessage.senderName;
       const changedDate = receivedMessage.timestamp;
-
+      console.log(changedLastMessage)
+      console.log(changedChatRoomId)
       setChatRoomList(prevChatRooms => {
         return prevChatRooms.map(chatRoom => {
-          if (String(chatRoom.id) === changedChatRoomId) {
+          if (chatRoom.id === Number(changedChatRoomId)) {
             return {
               ...chatRoom,
               lastMessage: changedLastMessage,
