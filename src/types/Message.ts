@@ -4,4 +4,5 @@ export interface Message {
     senderId: string;
     senderName: string;
     timestamp: string;
+    type: string;
 }

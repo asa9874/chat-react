@@ -1,12 +1,13 @@
 import type { Message } from "../types/Message";
 
-interface ChatRoomMyChatProps {
+interface ChatRoomOtherChatProps {
   message: Message
 }
 
 
 
-function ChatRoomOtherChat({ message }: ChatRoomMyChatProps) {
+function ChatRoomOtherChat({ message }: ChatRoomOtherChatProps) {
+  console.log(message);
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-center gap-2">
@@ -16,9 +17,15 @@ function ChatRoomOtherChat({ message }: ChatRoomMyChatProps) {
         />
         <div className="flex flex-col">
           <span className="text-xl font-semibold ">{message.senderName}</span>
-          <div className="bg-gray-200 p-2 rounded-lg">
-            <p className="text-xl">{message.content}</p>
-          </div>
+          {message.type === "IMAGE" && (
+              <img 
+                style={{ maxWidth: "150px", maxHeight: "150px" }}
+                src={message.content} alt="Chat Image" className="max-w-xs rounded-lg" 
+              />
+          )}
+          {message.type === "TEXT" && (<div className="bg-gray-200 p-2 rounded-lg">
+              <p className="text-xl">{message.content}</p>
+          </div>)}
           <span className="text-sm text-gray-500 text-right">{new Date(message.timestamp).toLocaleTimeString()}</span>
         </div>
       </div>
