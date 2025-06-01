@@ -1,54 +1,32 @@
-# React + TypeScript + Vite
+# 리액트 채팅 웹
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> SpringBoot와 웹소켓을 사용하여 제작한 리액트 채팅 웹입니다. 실시간 메시지 전송 기능을 구현하였습니다.
 
-Currently, two official plugins are available:
+## 📂 프로젝트 구성
+- **백엔드**: [SpringBoot 채팅 서버레포지](https://github.com/asa9874/chat-springboot)
+- **프론트엔드**: React + TypeScript + Vite
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<div>
+    <table>
+        <tr>
+            <td><code><img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/react.png" alt="React" title="React"/></code></td>
+            <td><code><img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/typescript.png" alt="TypeScript" title="TypeScript"/></code></td>
+            <td><code><img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/vite.png" alt="Vite" title="Vite"/></code></td>
+        </tr>
+    </table>
+</div>
 
-## Expanding the ESLint configuration
+## 🌐 기능
+- **실시간 채팅**: 웹소켓을 이용해 사용자가 메시지를 실시간으로 주고받을 수 있습니다.
+- **유저 목록**: 현재 채팅에 접속한 유저들을 실시간으로 표시합니다.
+- **기본적인 메시지 전송 기능**: 텍스트 메시지 전송 및 수신 기능이 구현되어 있습니다.
+- **이미지 전송 기능**: 이미지 웹소켓 전송기능이 구현되어 있습니다.
+- **채팅알림기능**: 채팅방에 들어가있지않아도 들어가있는 채팅방에 채팅이 새로오면 알수있습니다.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🔧 설치 방법
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### 1. 클론 및 의존성 설치
+```bash
+git clone https://github.com/asa9874/chat-react
+cd chat-react
+npm install
